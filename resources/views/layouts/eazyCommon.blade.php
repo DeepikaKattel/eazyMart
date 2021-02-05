@@ -33,6 +33,11 @@
 <body>
 @include('eazymart.partials.navbar')
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+<!-- Message -->
+<div id="message" class="center">
+    <strong>Login to<br>Add to Cart</strong>
+</div>
+
 @yield('content')
 {{--<!-- newsletter -->--}}
 {{--<div class="footer-top">--}}
@@ -61,8 +66,8 @@
 <!-- js-files -->
 <!--add to cart-->
 
-
-
+<script src="/assets/js/buttons.js"></script>
+<script src="/assets/js/scripts.js"></script>
 <script src="/assets/js/cart.js"></script>
 <script src="/assets/js/navbar.js"></script>
 <!-- jquery -->

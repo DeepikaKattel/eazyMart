@@ -34,8 +34,9 @@
             <!-- //header lists -->
             <!-- search -->
             <div class="agileits_search">
-                <form action="/products/search" method="post">
-                    <input id="searchProduct" name="Search" type="search" placeholder="How can we help you today?" required="">
+                <form class="form" action="/products/search" method="POST">
+                    @csrf
+                    <input id="searchProduct" name="query" type="search" placeholder="How can we help you today?" required="">
                     <button type="submit" class="btn btn-default" aria-label="Left Align">
                         <span class="fa fa-search" aria-hidden="true"></span>
                     </button>
@@ -156,6 +157,8 @@
         <div class="top_nav_left">
             <nav class="navbar navbar-default">
                 <div class="container-fluid">
+
+
                     <!-- Brand and toggle get grouped for better mobile display -->
                     <div class="navbar-header">
                         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
