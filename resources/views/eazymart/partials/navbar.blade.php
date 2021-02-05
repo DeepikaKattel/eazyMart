@@ -84,9 +84,15 @@
                         <a href="#" data-toggle="modal" data-target="#myModal2">
                             Sign Up Now</a>
                     </p>
-                    <form action="#" method="post">
+                    <form method="POST" action="{{ route('login') }}">
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="User Name" name="Name" required="">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+
+                            @error('email')
+                            <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                            @enderror
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" required="">
