@@ -4882,3 +4882,14 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 /*--//responsive--*/
+
+
+/*navbar*/
+#agileinfo-nav_search ul {
+    list-style-type: none;
+    text-decoration: none;
+}
+#agileinfo-nav_search ul li a{
+    text-decoration: none;
+    color:black;
+}

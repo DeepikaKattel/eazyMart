@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -100,6 +101,7 @@ Route::get('file-export', 'Admin\ProductController@fileExport')->name('file-expo
 
 
 Auth::routes();
+
 Route::get('/profile', 'ProfileController@showProfile');
 
 

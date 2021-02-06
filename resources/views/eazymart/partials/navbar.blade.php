@@ -22,6 +22,7 @@
                 <li>
                     <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
                 </li>
+                @guest
                 <li>
                     <a href="#" data-toggle="modal" data-target="#myModal1">
                         <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
@@ -30,6 +31,15 @@
                     <a href="#" data-toggle="modal" data-target="#myModal2">
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
                 </li>
+                @else
+                    <li><a href="/profile"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
+                    <li>
+                        <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
+                    </li>
+                    @endif
             </ul>
             <!-- //header lists -->
             <!-- search -->
@@ -75,7 +85,7 @@
             </div>
             <div class="modal-body modal-body-sub_agile">
                 <div class="main-mailposi">
-                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>web
                 </div>
                 <div class="modal_body_left modal_body_left1">
                     <h3 class="agileinfo_sign">Sign In </h3>
@@ -86,16 +96,20 @@
                     </p>
                     <form method="POST" action="{{ route('login') }}">
                         <div class="styled-input agile-styled-input-top">
-                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-
+                            <input type="text" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
                             @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                            <span class="red-text" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
                             @enderror
                         </div>
                         <div class="styled-input">
-                            <input type="password" placeholder="Password" name="password" required="">
+                            <input type="password" class="le-input" name="password" value="{{ old('password') }}" required>
+                            @error('password')
+                            <span class="red-text" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                            @enderror
                         </div>
                         <input type="submit" value="Sign In">
                     </form>
@@ -159,6 +173,21 @@
 
 <div class="ban-top">
     <div class="container">
+        <div class="agileits-navi_search">
+            <div id="agileinfo-nav_search">
+                <ul class="inline">
+                    <li class="dropdown le-dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            <i class="fa fa-list"></i> All Categories
+                        </a>
+                        <ul class="dropdown-menu" id="departmentList">
+
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
 
         <div class="top_nav_left">
             <nav class="navbar navbar-default">

@@ -28,6 +28,9 @@
     <link rel="stylesheet" type="text/css" href="{{asset('eazy/css/jquery-ui1.css')}}">
     <!-- fonts -->
     <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+
+    {{--  For search autocomplete  --}}
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
 </head>
 
 <body>
@@ -66,10 +69,10 @@
 <!-- js-files -->
 <!--add to cart-->
 
-<script src="/assets/js/buttons.js"></script>
-<script src="/assets/js/scripts.js"></script>
-<script src="/assets/js/cart.js"></script>
-<script src="/assets/js/navbar.js"></script>
+{{--<script src="{{asset('assets/js/buttons.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/scripts.js')}}"></script>--}}
+{{--<script src="{{asset('assets/js/cart.js')}}"></script>--}}
+
 <!-- jquery -->
 <script src="{{asset('eazy/js/jquery-2.1.4.min.js')}}"></script>
 {{--    <!-- ALL JS FILES -->--}}
@@ -237,6 +240,34 @@
 
 <!-- for bootstrap working -->
 <script src="{{asset('eazy/js/bootstrap.js')}}"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        $( "#searchProduct" ).autocomplete({
+
+            source: function(request, response) {
+                $.ajax({
+                    url: "{{url('livesearch')}}",
+                    data: {
+                        term : request.term
+                    },
+                    dataType: "json",
+                    success: function(data){
+                        var resp = $.map(data,function(obj){
+                            //console.log(obj.city_name);
+                            return obj.name;
+                        });
+
+                        response($.ui.autocomplete.filter(resp, request.term));
+                    }
+                });
+            },
+            minLength: 1
+        });
+    });
+
+</script>
+<script src="{{asset('assets/js/navbar.js')}}"></script>
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 
