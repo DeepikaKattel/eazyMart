@@ -1,4 +1,4 @@
-@extends('layouts.eazyCommon')
+@extends('layouts.app')
 
 @section('content')
 <section id="category-grid">

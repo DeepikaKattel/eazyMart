@@ -112,3 +112,6 @@ Route::get('/aboutMart', 'IndexController@aboutMart');
 Route::get('/contactMart', 'IndexController@contactMart');
 Route::get('/singleMart/{id}', 'ProductsController@showProductsMart');
 
+
+Route::post('/products/search/all', 'ProductsController@searchProductsMart');
+

@@ -41,6 +41,13 @@ class ProductsController extends Controller
         $departments = Department::all();
         return view('main.products_search', compact('products', 'departments'));
     }
+    public function searchProductsMart(Request $request) {
+        $products = Product::where('name', 'LIKE', '%'.$request->input('query').'%')
+            ->orWhere('brand', 'LIKE', '%'.$request->input('query').'%')
+            ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
+        $departments = Department::all();
+        return view('eazymart.product_search', compact('products', 'departments'));
+    }
     public function livesearch(Request $request) {
         $search = $request->get('query');
         $data = Product::where('name', 'LIKE', '%'.$search.'%')
