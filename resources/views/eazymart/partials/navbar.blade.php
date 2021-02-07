@@ -56,13 +56,94 @@
             <!-- cart details -->
             <div class="top_nav_right">
                 <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-                    <form action="#" method="post" class="last">
-                        <input type="hidden" name="cmd" value="_cart">
-                        <input type="hidden" name="display" value="1">
-                        <button class="w3view-cart" type="submit" name="submit" value="">
+{{--                    <form action="#" method="post" class="last">--}}
+{{--                        <input type="hidden" name="cmd" value="_cart">--}}
+{{--                        <input type="hidden" name="display" value="1">--}}
+                    <div class="basket-item-count">
+                        <span class="count">0</span>
+                        <button class="w3view-cart">
                             <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
                         </button>
-                    </form>
+                    </div>
+                    <div class="top-cart-holder dropdown animate-dropdown">
+                        <div class="basket" id="cart-dropdown" style="width:40px;height:40px">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                @guest
+                                    <a href="/login">
+                                        <div class="basket-item-count">
+                                            <span class="count">0</span>
+                                            <img src="/assets/images/icon-cart.png" alt="" />
+                                        </div>
+                                        <div class="total-price-basket" style="width:100px">
+                                            <span class="lbl" style="font-size:9px">Manage cart</span>
+                                        </div>
+                                    </a>
+                                @else
+                                    @if ($carts ?? '')
+                                        <div class="basket-item-count" style="width:400px">
+                                            <span class="count">{{count($carts)}}</span>
+                                            <img src="/assets/images/icon-cart.png" alt="" />
+                                        </div>
+
+                                        <div class="total-price-basket">
+                                            <span class="lbl">your cart:</span>
+                                            <span class="total-price">
+                                                                <span class="sign">Rs.</span>
+                                                                <span class="value">{{$grand_total}}</span>
+                                                            </span>
+                                        </div>
+                                    @else
+                                        <div class="basket-item-count">
+                                            <span class="count">0</span>
+                                            <img src="/assets/images/icon-cart.png" alt="" />
+                                        </div>
+
+                                        <div class="total-price-basket">
+                                            <span class="lbl">your cart:</span>
+                                            <span class="total-price">
+                                                                <span class="sign">Rs.</span>
+                                                                <span class="value">0</span>
+                                                            </span>
+                                        </div>
+                                    @endif
+                                @endguest
+                            </a>
+
+                            @if ($carts ?? '')
+                                <ul class="dropdown-menu">
+                                    @foreach ($carts as $cart)
+                                        <li>
+                                            <div class="basket-item">
+                                                <div class="row">
+                                                    <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                                        <div class="thumb">
+                                                            <img alt="" src="/assets/images/products/{{$cart->product->image}}" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-xs-8 col-sm-8">
+                                                        <div class="title">{{$cart->product->name}}</div>
+                                                        <div class="price">Rs.{{$cart->product->rate}}</div>
+                                                    </div>
+                                                </div>
+                                                <a class="close-btn" href="#"></a>
+                                            </div>
+                                        </li>
+                                    @endforeach
+
+                                    <li class="checkout">
+                                        <div class="basket-item">
+                                            <div class="row">
+                                                <div class="col-xs-12 col-sm-6">
+                                                    <a href="checkout.html" class="le-button">Checkout</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+                            @endif
+                        </div><!-- /.basket -->
+                    </div><!-- /.top-cart-holder -->
+{{--                    </form>--}}
 
                 </div>
             </div>
