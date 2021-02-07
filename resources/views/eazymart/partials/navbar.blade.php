@@ -68,7 +68,7 @@
             </div>
             <!-- //cart details -->
             <div class="clearfix"></div>
-        </div>
+    </div>
         <div class="clearfix"></div>
     </div>
 </div>
@@ -85,7 +85,7 @@
             </div>
             <div class="modal-body modal-body-sub_agile">
                 <div class="main-mailposi">
-                    <span class="fa fa-envelope-o" aria-hidden="true"></span>web
+                    <span class="fa fa-envelope-o" aria-hidden="true"></span>
                 </div>
                 <div class="modal_body_left modal_body_left1">
                     <h3 class="agileinfo_sign">Sign In </h3>
@@ -95,8 +95,9 @@
                             Sign Up Now</a>
                     </p>
                     <form method="POST" action="{{ route('login') }}">
+                        @csrf
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
+                            <input type="email" class="le-input" name="email" value="{{ old('email') }}" required autofocus>
                             @error('email')
                             <span class="red-text" role="alert">
                                 <strong>{{ $message }}</strong>
@@ -141,18 +142,19 @@
                     <p>
                         Come join the Grocery Shoppy! Let's set up your Account.
                     </p>
-                    <form action="#" method="post">
+                    <form method="POST" action="{{ route('register') }}">
+                        @csrf
                         <div class="styled-input agile-styled-input-top">
-                            <input type="text" placeholder="Name" name="Name" required="">
+                            <input type="text" placeholder="Name" name="name" required="">
                         </div>
                         <div class="styled-input">
-                            <input type="email" placeholder="E-mail" name="Email" required="">
+                            <input type="email" placeholder="E-mail" name="email" required="">
                         </div>
                         <div class="styled-input">
                             <input type="password" placeholder="Password" name="password" id="password1" required="">
                         </div>
                         <div class="styled-input">
-                            <input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2" required="">
+                            <input type="password" placeholder="Confirm Password" name="password_confirmation" id="password2" required="">
                         </div>
                         <input type="submit" value="Sign Up">
                     </form>

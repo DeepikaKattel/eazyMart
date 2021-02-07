@@ -36,6 +36,10 @@
 <body>
 @include('eazymart.partials.navbar')
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
+
+<div id="cart-message" class="center">
+    <strong>Added to Cart</strong>
+</div>
 <!-- Message -->
 <div id="message" class="center">
     <strong>Login to<br>Add to Cart</strong>
@@ -68,10 +72,22 @@
 
 <!-- js-files -->
 <!--add to cart-->
-
-{{--<script src="{{asset('assets/js/buttons.js')}}"></script>--}}
-{{--<script src="{{asset('assets/js/scripts.js')}}"></script>--}}
-{{--<script src="{{asset('assets/js/cart.js')}}"></script>--}}
+<!-- JavaScripts placed at the end of the document so the pages load faster -->
+<script src="/assets/js/jquery-1.10.2.min.js"></script>
+<script src="/assets/js/jquery-migrate-1.2.1.js"></script>
+<script src="/assets/js/gmap3.min.js"></script>
+<script src="/assets/js/bootstrap-hover-dropdown.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/css_browser_selector.min.js"></script>
+<script src="/assets/js/echo.min.js"></script>
+<script src="/assets/js/jquery.easing-1.3.min.js"></script>
+<script src="/assets/js/bootstrap-slider.min.js"></script>
+<script src="/assets/js/jquery.raty.min.js"></script>
+<script src="/assets/js/jquery.prettyPhoto.min.js"></script>
+<script src="/assets/js/jquery.customSelect.min.js"></script>
+<script src="/assets/js/wow.min.js"></script>
+<script src="/assets/js/buttons.js"></script>
+<script src="/assets/js/scripts.js"></script>
 
 <!-- jquery -->
 <script src="{{asset('eazy/js/jquery-2.1.4.min.js')}}"></script>
@@ -267,7 +283,9 @@
     });
 
 </script>
+<script src="{{asset('assets/js/cart.js')}}"></script>
 <script src="{{asset('assets/js/navbar.js')}}"></script>
+
 <!-- //for bootstrap working -->
 <!-- //js-files -->
 

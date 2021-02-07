@@ -14,7 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'IndexController@index');
+Route::get('/', 'IndexController@indexMart');
+Route::get('/index', 'IndexController@index');
 Route::get('/home', 'IndexController@home')->name('home');
 Route::get('/about', 'IndexController@about')->name('about');
 Route::get('/blog', 'IndexController@blog');

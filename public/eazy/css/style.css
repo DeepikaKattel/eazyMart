@@ -4893,3 +4893,16 @@ input[type="radio"], input[type="checkbox"] {
     text-decoration: none;
     color:black;
 }
+
+/*message*/
+#message, #cart-message{
+    display: none;
+    padding: 13px 20px;
+    position: fixed;
+    right: 20px;
+    top: 45%;
+    z-index: 3;
+    border-radius: 2px;
+    color: white;
+    background: #44b4af;
+}

@@ -115,9 +115,8 @@
                                     <del>Rs.{{$f->prev_price}}</del>
                                 </div>
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                                    <a class="button" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')">Add to Cart</a>
+                                    <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
                                 </div>
-
                             </div>
                         </div>
                     </div>
