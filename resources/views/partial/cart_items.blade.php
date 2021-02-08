@@ -3,9 +3,11 @@
     <a href="/login">
         <div class="basket-item-count">
             <span class="count">0</span>
-            <img src="/assets/images/icon-cart.png" alt="" />
+            <button class="w3view-cart">
+                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+            </button>
         </div>
-        
+
         <div class="total-price-basket">
             <span class="lbl">login to <br> manage cart</span>
         </div>
@@ -14,9 +16,11 @@
         @if ($carts ?? '')
             <div class="basket-item-count">
                 <span class="count">{{count($carts)}}</span>
-                <img src="/assets/images/icon-cart.png" alt="" />
+                <button class="w3view-cart">
+                    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                </button>
             </div>
-            
+
             <div class="total-price-basket">
                 <span class="lbl">your cart:</span>
                 <span class="total-price">
@@ -27,9 +31,11 @@
         @else
             <div class="basket-item-count">
                 <span class="count">0</span>
-                <img src="/assets/images/icon-cart.png" alt="" />
+                <button class="w3view-cart">
+                    <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
+                </button>
             </div>
-            
+
             <div class="total-price-basket">
                 <span class="lbl">your cart:</span>
                 <span class="total-price">
@@ -61,7 +67,7 @@
                 </div>
             </li>
         @endforeach
-        
+
         <li class="checkout">
             <div class="basket-item">
                 <div class="row">
