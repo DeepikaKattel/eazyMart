@@ -50,7 +50,7 @@
             <div class="checkout-left">
                 <div class="address_form_agile">
                     <h4>Checkout Form</h4>
-                    <form action="" method="POST" class="creditly-card-form agileinfo_form">
+                    <form action="/checkout" method="POST" class="creditly-card-form agileinfo_form">
                         @csrf
                         <div class="creditly-wrapper wthree, w3_agileits_wrapper">
                             <div class="information-wrapper">

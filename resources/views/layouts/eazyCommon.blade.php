@@ -17,6 +17,7 @@
             window.scrollTo(0, 1);
         }
     </script>
+
     <!--//tags -->
     <link href="{{asset('eazy/css/bootstrap.css')}}" rel="stylesheet" type="text/css" media="all" />
     <link href="{{asset('eazy/css/style.css')}}" rel="stylesheet" type="text/css" media="all" />
@@ -32,85 +33,9 @@
     {{--  For search autocomplete  --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-        .count{
-            position: absolute;
-            color: #fff;
-            right: 70px;
-            border-radius: 100px;
-            width: 15px;
-            height: 15px;
-            line-height: 15px;
-            font-size: 10px;
-            font-weight: bold;
-            text-align: center;
-            background-color: red;
-        }
-        .lbl{
-            font-size: 10px;
-            line-height: 10px;
-            width: 150px;
-            color: #3D3D3D;
-            display: block;
-        }
-        .total-price{
-            font-size: 12px;
-            font-weight: bold;
-        }
-        .top-nav-right ul > li{
-            float: left;
-            display: block;
-        }
-        .dropdown-menu{
-            width: 332px;
-            left: -570px;
-            top: 65px;
-            padding: 16px 0 0 0;
-        }
-        .open>.dropdown-menu {
-            display: block;
-        }
-        .dropdown .dropdown-menu {
-            border-top-color: #b0b435;
-        }
-        .dropdown .dropdown-menu {
-            border-radius: 0;
-            top: 120% !important;
-        }
-        .basket-item {
-            padding: 11px 28px;
-            position: relative;
-        }
-        .dropdown-menu {
-            position: absolute;
-            top: 100%;
-            left: 0;
-            z-index: 1000;
-            display: none;
-            float: left;
-            min-width: 160px;
-            padding: 5px 0;
-            margin: 2px 0 0;
-            font-size: 14px;
-            text-align: left;
-            list-style: none;
-            background-color: #fff;
-            -webkit-background-clip: padding-box;
-            background-clip: padding-box;
-            border: 1px solid #ccc;
-            border: 1px solid rgba(0,0,0,.15);
-            border-radius: 4px;
-            -webkit-box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
-            box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
-        }
-        .top-cart-holder li {
-            border-bottom: 1px solid #e0e0e0;
-        }
-        ul, li, ol {
-            list-style: none;
-            margin: 0px;
-            padding: 0px;
-        }
-        </style>
+
+    </style>
+
 </head>
 
 <body>

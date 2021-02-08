@@ -109,36 +109,37 @@
                             </a>
 
                             @if ($carts ?? '')
-                                <ul class="dropdown-menu">
-                                    @foreach ($carts as $cart)
-                                        <li>
-                                            <div class="basket-item">
-                                                <div class="row">
-                                                    <div class="col-xs-4 col-sm-4 no-margin text-center">
-                                                        <div class="thumb">
-                                                            <img alt="" src="/assets/images/products/{{$cart->product->image}}" />
+                                    <ul class="dropdown-menu">
+                                        @foreach ($carts as $cart)
+                                            <li>
+                                                <div class="basket-item">
+                                                    <div class="row">
+                                                        <div class="col-xs-4 col-sm-4 no-margin text-center">
+                                                            <div class="thumb" >
+                                                                <img alt="" src="/assets/images/products/{{$cart->product->image}}"/>
+                                                            </div>
+                                                        </div>
+                                                        <div class="col-xs-8 col-sm-8">
+                                                            <div class="title">{{$cart->product->name}}</div>
+                                                            <div class="price">Rs.{{$cart->product->rate}}</div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-xs-8 col-sm-8">
-                                                        <div class="title">{{$cart->product->name}}</div>
-                                                        <div class="price">Rs.{{$cart->product->rate}}</div>
+                                                    <a class="close-btn" href="#"></a>
+                                                </div>
+                                            </li>
+                                        @endforeach
+
+                                        <li class="checkout">
+                                            <div class="basket-item">
+                                                <div class="row">
+                                                    <div class="col-xs-12 col-sm-6">
+                                                        <a href="/checkoutMart" class="le-button">Checkout</a>
                                                     </div>
                                                 </div>
-                                                <a class="close-btn" href="#"></a>
                                             </div>
                                         </li>
-                                    @endforeach
+                                    </ul>
 
-                                    <li class="checkout">
-                                        <div class="basket-item">
-                                            <div class="row">
-                                                <div class="col-xs-12 col-sm-6">
-                                                    <a href="checkout.html" class="le-button">Checkout</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </li>
-                                </ul>
                             @endif
 {{--                        </div><!-- /.basket -->--}}
                     </div><!-- /.top-cart-holder -->

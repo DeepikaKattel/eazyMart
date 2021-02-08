@@ -33,6 +33,17 @@ class ProductsController extends Controller
 //        $productsDisplay = Product::get();
         return view('main.products_department', compact('products', 'departments', 'current_department', 'items'));
     }
+    public function showProductsMartDepartment(Request $request, $id) {
+        $items = $request->input('items');
+        if ($items == null) {
+            $items = 9;
+        }
+        $products = Product::where('dept_id', $id)->paginate($items);
+        $departments = Department::all();
+        $current_department = Department::find($id);
+//        $productsDisplay = Product::get();
+        return view('eazymart.products_department', compact('products', 'departments', 'current_department', 'items'));
+    }
 
     public function searchProducts(Request $request) {
         $products = Product::where('name', 'LIKE', '%'.$request->input('query').'%')

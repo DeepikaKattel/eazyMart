@@ -24,7 +24,7 @@
 <div class="banner-bootom-w3-agileits">
     <div class="container">
         <!-- tittle heading -->
-        <h3 class="tittle-w3l">Single Page
+        <h3 class="tittle-w3l">Search Result
             <span class="heading-style">
 					<i></i>
 					<i></i>
@@ -32,79 +32,41 @@
 				</span>
         </h3>
         <!-- //tittle heading -->
-        <div class="col-md-4 product-men">
-            <div class="men-pro-item simpleCart_shelfItem">
-                <div class="men-thumb-item">
-                    <img alt="" src="/storage/images/products/{{$f->image}}"/>
-                    <div class="men-cart-pro">
-                        <div class="inner-men-cart-pro">
-                            <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
+        @if($products)
+            <div class="product-sec1">
+                <h3 class="heading-tittle">Nuts</h3>
+                @foreach ($products as $f)
+                    <div class="col-md-4 product-men">
+                        <div class="men-pro-item simpleCart_shelfItem">
+                            <div class="men-thumb-item">
+                                <img alt="" src="/storage/images/products/{{$f->image}}"/>
+                                <div class="men-cart-pro">
+                                    <div class="inner-men-cart-pro">
+                                        <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
+                                    </div>
+                                </div>
+                                <span class="product-new-top">New</span>
+                            </div>
+                            <div class="item-info-product ">
+                                <h4>
+                                    <a href="/singleMart/{{$f->id}}" >{{ Str::limit($f->name, 10) }}</a>
+                                </h4>
+                                <div class="info-product-price">
+                                    <span class="item_price">Rs.{{$f->rate}}</span>
+                                    <del>Rs.{{$f->prev_price}}</del>
+                                </div>
+                                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                                    <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <span class="product-new-top">New</span>
-                </div>
-                <div class="item-info-product ">
-                    <h4>
-                        <a href="/singleMart/{{$f->id}}" >{{ Str::limit($f->name, 10) }}</a>
-                    </h4>
-                    <div class="info-product-price">
-                        <span class="item_price">Rs.{{$f->rate}}</span>
-                        <del>Rs.{{$f->prev_price}}</del>
-                    </div>
-                    <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                        <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
-                    </div>
-                </div>
+                @endforeach
+                <div class="clearfix"></div>
             </div>
-        </div>
-        <div class="col-md-5 single-right-left ">
-            <div class="grid images_3_of_2">
-                <div class="flexslider">
-                    <ul class="slides">
-                        <img src="/storage/images/products/{{$product->image}}" />
-                    </ul>
-                    <div class="clearfix"></div>
-                </div>
-            </div>
-        </div>
-        <div class="col-md-7 single-right-left simpleCart_shelfItem">
-            <h3>{{$product->name}}</h3>
-            <p>{{$product->brand}}<p>
+        @endif
 
-            <div class="availability"><label>Availability:</label>
-                @if ($product->quantity>0)
-                    <span class="available">  in stock</span>
-                @else
-                    <span class="not-available">  Out of Stock</span>
-                @endif
-            </div>
-            <p>
-                <span class="item_price">Rs.{{$product->rate}}</span>
-                <del>Rs.{{$product->prev_price}}</del>
-            </p>
 
-            <div class="product-single-w3l">
-                <p>
-                    <i class="fa fa-hand-o-right" aria-hidden="true"></i>
-                    <label>Description</label>
-                <ul>
-                    <li>
-                        {{$product->description}}
-                    </li>
-
-                </ul>
-                <p>
-                    <i class="fa fa-refresh" aria-hidden="true"></i>All food products are
-                    <label>non-returnable.</label>
-                </p>
-            </div>
-            <div class="occasion-cart">
-                <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
-                    <input type="submit" name="submit" value="Add to Cart" onclick="addToCart({{$product->id}}, '<?php echo csrf_token() ?>')" class="button"/>
-                </div>
-            </div>
-        </div>
-        <div class="clearfix"> </div>
     </div>
 </div>
 <!-- //Single Page -->

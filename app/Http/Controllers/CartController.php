@@ -181,4 +181,13 @@ class CartController extends Controller
             return redirect('/');
         }
     }
+
+    public function checkoutFormMart() {
+        $cart = Cart::where([
+            ['user_id', '=', Auth::id()],
+            ['checkout', '=', 0]
+        ])->get();
+
+        return view('eazymart.checkout', ['cart_id' => $cart[0]->id]);
+    }
 }

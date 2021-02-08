@@ -587,7 +587,18 @@ button.w3view-cart {
     margin-top: 2em;
 }
 .product-men img{
-    max-height:180px;
+    height:180px;
+    width:180px;
+}
+#cart-list .amount{
+    float: right;
+    color:black;
+    width: 20%;
+}
+#cart-list .cart-item:hover {
+    cursor: pointer;
+    background: #cb3b3b;
+    color: #000;
 }
 .men-pro-item {
     position: relative;
@@ -4908,4 +4919,19 @@ input[type="radio"], input[type="checkbox"] {
 }
 
 /*basket count*/
+
+.close1:hover,.close2:hover,.close3:hover {
+    background: linear-gradient(rgba(186, 10, 0, 0.7), rgba(186, 10, 0, 0.5)),url('../images/close_1.png') no-repeat 0px 0px;
+    cursor: pointer;
+    width: 28px;
+    border-radius:50px;
+    height: 28px;
+    position: absolute;
+    right: 15px;
+    top: -13px;
+    -webkit-transition: color 0.2s ease-in-out;
+    -moz-transition: color 0.2s ease-in-out;
+    -o-transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease-in-out;
+}
 

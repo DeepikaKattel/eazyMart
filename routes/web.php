@@ -114,4 +114,8 @@ Route::get('/singleMart/{id}', 'ProductsController@showProductsMart');
 
 
 Route::post('/products/search/all', 'ProductsController@searchProductsMart');
+Route::get('/departmentMart/{department}', 'ProductsController@showProductsMartDepartment');
+
+Route::get('/checkoutMart', 'CartController@checkoutFormMart');
+
 
