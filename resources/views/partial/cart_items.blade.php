@@ -22,10 +22,10 @@
             </div>
 
             <div class="total-price-basket">
-                <span class="lbl">your cart:</span>
+                <span class="lbl">Your cart:</span>
                 <span class="total-price">
                     <span class="sign">Rs.</span>
-                    <span class="value">{{$grand_total}}</span>
+                    <span class="price-value">{{$grand_total}}</span>
                 </span>
             </div>
         @else
@@ -37,10 +37,10 @@
             </div>
 
             <div class="total-price-basket">
-                <span class="lbl">your cart:</span>
+                <span class="lbl">Your cart:</span>
                 <span class="total-price">
                     <span class="sign">Rs.</span>
-                    <span class="value">0</span>
+                    <span class="price-value">0</span>
                 </span>
             </div>
         @endif
@@ -49,33 +49,33 @@
 
 @if ($carts ?? '')
     <ul class="dropdown-menu">
-        @foreach ($carts as $cart)
-            <li>
-                <div class="basket-item">
-                    <div class="row">
-                        <div class="col-xs-4 col-sm-4 no-margin text-center">
-                            <div class="thumb">
-                                <img alt="" src="/storage/images/products/{{$cart->product->image}}" />
-                            </div>
+        <table class="dropdown">
+            <thead>
+                <tr>
+                    <td>Img</td>
+                    <td>Product</td>
+                    <td>Rate</td>
+                    <td>Qty</td>
+                </tr>
+            </thead>
+            <tbody>
+            @foreach ($carts as $cart)
+                <tr>
+                    <td>
+                        <div class="thumb inline">
+                            <img alt="" src="/storage/images/products/{{$cart->product->image}}" />
                         </div>
-                        <div class="col-xs-8 col-sm-8">
-                            <strong>{{$cart->product->name}}</strong>
-                            <div><strong>Rate:</strong> <span class="price"> Rs.{{$cart->product->rate}}</span></div>
-                            <div><strong>Quantity: </strong>{{$cart->quantity}}</div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-        @endforeach
+                    </td>
+                    <td>{{$cart->product->name}}</td>
+                    <td><span class="price">Rs{{$cart->product->rate}}</span></td>
+                    <td><span class="qty pl-5">{{$cart->quantity}}</span></td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
 
-        <li class="checkout">
-            <div class="basket-item">
-                <div class="row">
-                    <div class="col-xs-12 col-sm-6">
-                        <a href="/checkout" class="le-button">Checkout</a>
-                    </div>
-                </div>
-            </div>
-        </li>
+        <div class="checkout">
+            <a href="/checkoutMart" class="checkout-button">Checkout</a>
+        </div>
     </ul>
 @endif

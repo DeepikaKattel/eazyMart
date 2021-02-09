@@ -102,12 +102,7 @@
                         <li>
                             <a href="contact.html">Contact Us</a>
                         </li>
-                        <li>
-                            <a href="help.html">Help</a>
-                        </li>
-                        <li>
-                            <a href="faqs.html">Faqs</a>
-                        </li>
+
                         <li>
                             <a href="terms.html">Terms of use</a>
                         </li>
@@ -120,14 +115,14 @@
                     <h3>Get in Touch</h3>
                     <ul>
                         <li>
-                            <i class="fa fa-map-marker"></i> 123 Sebastian, USA.</li>
+                            <i class="fa fa-map-marker"></i> Manamaiju, Balaju, Nepal.</li>
                         <li>
-                            <i class="fa fa-mobile"></i> 333 222 3333 </li>
+                            <i class="fa fa-phone"></i> Telephone : 52124213</li>
                         <li>
-                            <i class="fa fa-phone"></i> +222 11 4444 </li>
+                            <i class="fa fa-fax"></i> FAX : +1 888 888 4444 </li>
                         <li>
                             <i class="fa fa-envelope-o"></i>
-                            <a href="mailto:example@mail.com"> mail@example.com</a>
+                            <a href="mailto:example@mail.com"> eazymart@gmail.com</a>
                         </li>
                     </ul>
                 </div>

@@ -15,4 +15,9 @@ class ProfileController extends Controller
         $barcode = BarCode::first();
         return view('main.profile', compact('profileCarts','barcode'));
     }
+    public function showProfileMart() {
+        $profileCarts = Cart::where('user_id', Auth::id())->get();
+        $barcode = BarCode::first();
+        return view('eazymart.profile', compact('profileCarts','barcode'));
+    }
 }

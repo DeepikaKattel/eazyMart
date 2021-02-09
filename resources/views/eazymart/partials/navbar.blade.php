@@ -11,7 +11,7 @@
         <!-- header-bot-->
         <div class="col-md-4 logo_agile">
             <h1>
-                <a href="index.html">
+                <a href="/">
                     <img src="{{asset('eazy/images/logoBack.png')}}" alt="" width="100px" height="100px">
                 </a>
             </h1>
@@ -33,7 +33,10 @@
                         <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
                 </li>
                 @else
-                    <li><a href="/profile"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
+                    @if (Auth::user()->isStaff())
+                        <li><a href="/admin/dashboard">Dashboard</a></li>
+                    @endif
+                    <li><a href="/profileMart"><i class="fa fa-user s_color"></i> {{Auth::user()->name}} </a></li>
                     <li>
                         <a href="" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">{{ __('Logout') }}</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

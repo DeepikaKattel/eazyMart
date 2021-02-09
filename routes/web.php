@@ -118,4 +118,5 @@ Route::get('/departmentMart/{department}', 'ProductsController@showProductsMartD
 
 Route::get('/checkoutMart', 'CartController@checkoutFormMart');
 
+Route::get('/profileMart', 'ProfileController@showProfileMart');
 
