@@ -14,9 +14,7 @@
         <div class="item {{ $loop->first ? ' active' : '' }}" style="background-image: url('{{ ('/storage/images/slider/' . $front->image) }}')">
             <div class="container">
                 <div class="carousel-caption">
-                    <h3>
-                        <span>{{$front->heading}}</span>
-                    </h3>
+                    <h3><span>{{$front->heading}}</span></h3>
                     <p><span>{{$front->message}}</span></p>
                     <a class="button2" href="product.html">Shop Now </a>
                 </div>
@@ -71,7 +69,8 @@
                                 </div>
                                 <span class="product-new-top">New</span>
                             </div>
-                            <div class="item-info-product ">
+
+                            <div class="item-info-product">
                                 <h4>
                                     <a href="/singleMart/{{$f->id}}" >{{ Str::limit($f->name, 10) }}</a>
                                 </h4>
@@ -97,7 +96,9 @@
                         <h6>Enjoy our all healthy Products</h6>
                         <p>Get Extra 10% Off</p>
                     </div>
+
                     <h3 class="w3l-nut-middle">Nuts & Dry Fruits</h3>
+
                     <div class="col-xs-5 bg-right-nut">
                         <img src="{{asset('eazy/images/nut1.png')}}" alt="">
                     </div>
@@ -120,18 +121,19 @@
                                 </div>
                                 <span class="product-new-top">New</span>
                             </div>
-                            <div class="item-info-product ">
+                            <div class="item-info-product">
                                 <h4>
                                     <a href="/singleMart/{{$f->id}}">{{ Str::limit($f->name, 10) }}</a>
                                 </h4>
+
                                 <div class="info-product-price">
                                     <span class="item_price">Rs.{{$f->rate}}</span>
                                     <del>Rs.{{$f->prev_price}}</del>
                                 </div>
+
                                 <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
                                     <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
                                 </div>
-
                             </div>
                         </div>
                     </div>
