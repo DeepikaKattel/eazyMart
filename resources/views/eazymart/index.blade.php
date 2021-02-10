@@ -11,7 +11,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         @foreach( $frontEnd as $front )
-        <div class="item {{ $loop->first ? ' active' : '' }}" style="background: url('/storage/images/products/{{$front->image}}')">
+        <div class="item {{ $loop->first ? ' active' : '' }}" style="background-image: url('{{ ('/storage/images/slider/' . $front->image) }}')">
             <div class="container">
                 <div class="carousel-caption">
                     <h3>
@@ -220,7 +220,6 @@
                     </div>
                 </li>
                 @endforeach
-
             </ul>
         </div>
     </div>

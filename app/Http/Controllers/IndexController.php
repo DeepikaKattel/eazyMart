@@ -148,6 +148,7 @@ class IndexController extends Controller
         $oil= Product::select()->where('dept_id', $oilDepartment)->take(3)->get();
 
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
+
         $banner = Banner::first();
         $popup = PopUp::first();
         $products = Product::get();
