@@ -17,7 +17,6 @@ class CreateProductsTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('brand')->default('Fresh');
-//            $table->unsignedBigInteger('vendor_id');
             $table->longText('description');
             $table->integer('quantity');
             $table->integer('rate');

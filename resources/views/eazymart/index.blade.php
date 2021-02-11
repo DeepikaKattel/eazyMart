@@ -67,7 +67,7 @@
                                         <a href="/singleMart/{{$f->id}}" class="link-product-add-cart">Quick View</a>
                                     </div>
                                 </div>
-                                <span class="product-new-top">New</span>
+                                <span class="product-new-top">New</span>                                
                             </div>
 
                             <div class="item-info-product">
@@ -215,7 +215,7 @@
                                 <h6>Rs.{{$f->rate}}</h6>
                                 <p>Save {{$f->discount}} %</p>
                             </div>
-                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">
+                            <div class="snipcart-details top_brand_home_details item_add single-item hvr-outline-out">                                
                                 <input type="submit" name="submit" onclick="addToCart({{$f->id}}, '<?php echo csrf_token() ?>')" value="Add to cart" class="button" />
                             </div>
                         </div>

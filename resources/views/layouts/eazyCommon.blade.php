@@ -33,7 +33,11 @@
     {{--  For search autocomplete  --}}
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <style>
-
+        .ui-autocomplete{
+            max-height:400px;
+            overflow-y:auto;
+            overflow-x:hidden;
+        }
     </style>
 
 </head>
@@ -46,7 +50,7 @@
     <strong>Added to Cart</strong>
 </div>
 <!-- Message -->
-<div id="message" class="center">
+<div id="message" data-toggle="modal" data-target="#myModal3" class="center">
     <strong>Login to<br>Add to Cart</strong>
 </div>
 
@@ -145,7 +149,9 @@
         if (total < 3) {
             alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
             evt.preventDefault();
+           
         }
+       
     });
 </script>
 <!-- //cart-js -->
@@ -292,7 +298,7 @@
 <script>
     $(document).ready(function() {
         $( "#searchProduct" ).autocomplete({
-
+           
             source: function(request, response) {
                 $.ajax({
                     url: "{{url('livesearch')}}",
@@ -301,16 +307,17 @@
                     },
                     dataType: "json",
                     success: function(data){
-                        var resp = $.map(data,function(obj){
-                            //console.log(obj.city_name);
+                        var resp = $.map(data,function(obj){             
+                                            
                             return obj.name;
+                           
                         });
 
-                        response($.ui.autocomplete.filter(resp, request.term));
+                        response($.ui.autocomplete.filter(resp.slice(0,500), request.term));
                     }
                 });
             },
-            minLength: 1
+            minLength: 3
         });
     });
 

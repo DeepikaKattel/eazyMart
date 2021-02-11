@@ -35,7 +35,7 @@
         <div class="col-md-5 single-right-left ">
             <div class="grid images_3_of_2">
                 <div class="flexslider">
-                    <ul class="slides">
+                    <ul class="slides img-hover-zoom--slowmo">
                         <img src="/storage/images/products/{{$product->image}}" />
                     </ul>
                     <div class="clearfix"></div>
