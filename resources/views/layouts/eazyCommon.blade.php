@@ -79,6 +79,7 @@
 <!-- footer -->
 @include('eazymart.partials.footer')
 
+@yield('javascript')
 <!-- js-files -->
 <!--add to cart-->
 <!-- JavaScripts placed at the end of the document so the pages load faster -->
@@ -149,9 +150,9 @@
         if (total < 3) {
             alert('The minimum order quantity is 3. Please add more to your shopping cart before checking out');
             evt.preventDefault();
-           
+
         }
-       
+
     });
 </script>
 <!-- //cart-js -->
@@ -298,7 +299,7 @@
 <script>
     $(document).ready(function() {
         $( "#searchProduct" ).autocomplete({
-           
+
             source: function(request, response) {
                 $.ajax({
                     url: "{{url('livesearch')}}",
@@ -307,10 +308,10 @@
                     },
                     dataType: "json",
                     success: function(data){
-                        var resp = $.map(data,function(obj){             
-                                            
+                        var resp = $.map(data,function(obj){
+
                             return obj.name;
-                           
+
                         });
 
                         response($.ui.autocomplete.filter(resp.slice(0,500), request.term));

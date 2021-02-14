@@ -1,5 +1,8 @@
 @extends('layouts.eazyCommon')
 @section('content')
+
+
+
 <!-- banner-2 -->
 <div class="page-head_agile_info_w3l">
 
@@ -36,18 +39,20 @@
             <div class="grid images_3_of_2">
                 <div class="flexslider">
                     <ul class="slides img-hover-zoom--slowmo">
-                        <img src="/storage/images/products/{{$product->image}}" />
+                        <img src="/storage/images/products/{{$product->image}}" id="currentImage" class="active"/>
                     </ul>
                     <div class="clearfix"></div>
                 </div>
             </div>
+
             <div class="product-section-images">
                 @foreach($productImg as $product)
-                    <div class="product-section-thumbnail">
+                    <div class="product-section-thumbnail selected">
                         <img src="/storage/Images/product_gallery/{{$product->image}}" alt="" class="img-fluid"/>
                     </div>
                 @endforeach
             </div>
+
         </div>
         <div class="col-md-7 single-right-left simpleCart_shelfItem">
             <h3>{{$product->name}}</h3>
@@ -90,4 +95,30 @@
     </div>
 </div>
 <!-- //Single Page -->
+@endsection
+{{--javascript for showing image and change image to zoom on click--}}
+@section('javascript')
+    <script>
+        (function(){
+            const currentImage = document.querySelector('#currentImage');
+            const images = document.querySelectorAll('.product-section-thumbnail');
+
+            images.forEach((element) => element.addEventListener('click',thumbnailClick));
+
+            function thumbnailClick(e){
+                currentImage.src = this.querySelector('img').src;
+
+                currentImage.classList.remove('active');
+
+                currentImage.addEventListener('transitioned',() => {
+                    currentImage.src = this.querySelector('img').src;
+                    currentImage.classList.add('active');
+                })
+
+                images.forEach((element) => element.classList.remove('selected'));
+                this.classList.add('selected');
+            }
+
+        })();
+    </script>
 @endsection

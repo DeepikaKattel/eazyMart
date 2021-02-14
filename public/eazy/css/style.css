@@ -5251,18 +5251,53 @@ table .thumb img {
     height: 40px;
     padding: 8px 0px;
     color: darkred;
-    line-height: 24px;    
+    line-height: 24px;
     text-align: center;
     display: inline-block;
     margin-right: 3px;
 }
-/* Slow-motion Zoom Container */
-.img-hover-zoom--slowmo img {
-    transform-origin: 50% 65%;
-    transition: transform 4s ease-in-out;
+/*!* Slow-motion Zoom Container *!*/
+/*.img-hover-zoom--slowmo img {*/
+/*    transform-origin: 50% 65%;*/
+/*    transition: transform 4s ease-in-out;*/
+/*}*/
+
+/*!* The Transformation *!*/
+/*.img-hover-zoom--slowmo:hover img {*/
+/*    transform: scale(1.5);*/
+/*}*/
+/*featured images css in single blade*/
+.product-section-images{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    grid-gap:20px;
+    margin-top: 20px;
+}
+.product-section-thumbnail{
+    display:flex;
+    align-items: center;
+    border: 1px solid darkgrey;
+    min-height:66px;
+    cursor: pointer;
+
+    img{
+        opacity:0;
+        transition:opacity .10s ease-in-out;
+    }
+
+    img.active{
+        opacity:1;
+    }
+}
+.product-section-thumbnail:hover{
+    border: 1px solid black;
+
+}
+.product-section-thumbnail img{
+    max-height:50px;
+    max-width:50px;
 }
 
-/* The Transformation */
-.img-hover-zoom--slowmo:hover img {
-    transform: scale(1.5);
+.selected{
+    border:1px solid black;
 }
