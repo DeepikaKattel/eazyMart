@@ -120,3 +120,7 @@ Route::get('/checkoutMart', 'CartController@checkoutFormMart');
 
 Route::get('/profileMart', 'ProfileController@showProfileMart');
 
+//ImageGallery
+Route::resource('/featured_image', 'ProductImageController');
+Route::get('/featured_image/destroy/{id}', 'ProductImageController@destroy')->name('fi.destroy');
+

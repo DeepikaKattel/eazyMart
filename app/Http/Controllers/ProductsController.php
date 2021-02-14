@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ProductImage;
 use Illuminate\Http\Request;
 use App\Product;
 use App\Department;
@@ -56,6 +57,7 @@ class ProductsController extends Controller
         $products = Product::where('name', 'LIKE', '%'.$request->input('query').'%')
             ->orWhere('brand', 'LIKE', '%'.$request->input('query').'%')
             ->orWhere('tags', 'LIKE', '%'.$request->input('query').'%')->get();
+
         $departments = Department::all();
         return view('eazymart.product_search', compact('products', 'departments'));
     }
@@ -80,7 +82,8 @@ class ProductsController extends Controller
         $product = Product::find($id);
         $departments = Department::all();
         $products = Product::get();
-        return view('eazymart.single', compact('product', 'departments','products'));
+        $productImg = ProductImage::with('products')->where('p_id','=',$product->id)->get();
+        return view('eazymart.single', compact('product', 'departments','products','productImg'));
     }
 
 

@@ -17,4 +17,9 @@ class Product extends Model
     public function cartItem(){
         return $this->hasMany(Cart::class);
     }
+
+    function featured()
+    {
+        return $this->hasMany(ProductImage::class);
+    }
 }

@@ -87,7 +87,6 @@
               </li>
 
               <li class="nav-header">FIELDS</li>
-
         </li>
         <li class="nav-item">
             <a href="" class="nav-link">
@@ -108,6 +107,18 @@
                     <a href="/admin/itemlist/" class="nav-link">
                     <i class="fas fa-list nav-icon"></i>
                     <p>List Products</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('featured_image.create')}}" class="nav-link">
+                        <i class="fas fa-plus nav-icon"></i>
+                        <p>Add Featured Image</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="{{route('featured_image.index')}}" class="nav-link">
+                        <i class="fas fa-list nav-icon"></i>
+                        <p>List Featured Image</p>
                     </a>
                 </li>
             </ul>

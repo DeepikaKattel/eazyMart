@@ -41,6 +41,13 @@
                     <div class="clearfix"></div>
                 </div>
             </div>
+            <div class="product-section-images">
+                @foreach($productImg as $product)
+                    <div class="product-section-thumbnail">
+                        <img src="/storage/Images/product_gallery/{{$product->image}}" alt="" class="img-fluid"/>
+                    </div>
+                @endforeach
+            </div>
         </div>
         <div class="col-md-7 single-right-left simpleCart_shelfItem">
             <h3>{{$product->name}}</h3>
