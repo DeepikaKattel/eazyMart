@@ -46,13 +46,14 @@
 @include('eazymart.partials.navbar')
 @include('sweetalert::alert', ['cdn' => "https://cdn.jsdelivr.net/npm/sweetalert2@9"])
 
-<div id="cart-message" class="center">
-    <strong>Added to Cart</strong>
-</div>
+{{--<div id="cart-message" class="center" data-toggle="modal" data-target="#myModal4">--}}
+{{--    <strong>Added to Cart</strong>--}}
+{{--</div>--}}
+
 <!-- Message -->
-<div id="message" data-toggle="modal" data-target="#myModal3" class="center">
-    <strong>Login to<br>Add to Cart</strong>
-</div>
+{{--<div id="message" data-toggle="modal" data-target="#myModal1" class="center">--}}
+{{--    <strong>Login to<br>Add to Cart</strong>--}}
+{{--</div>--}}
 
 @yield('content')
 {{--<!-- newsletter -->--}}

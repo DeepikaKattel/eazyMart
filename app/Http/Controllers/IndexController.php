@@ -149,6 +149,20 @@ class IndexController extends Controller
 
         $frontEnd = Frontend::orderBy('created_at', 'desc')->get();
 
+        if (Auth::check()) {
+            $cart = Cart::where([
+                ['user_id', '=', Auth::id()],
+                ['checkout', '=', 0]
+            ])->get();
+            if ($cart[0] ?? '') {
+                $grand_total = $cart[0]->grand_total;
+                $carts = CartItem::where('cart_id', $cart[0]->id)->get();
+            } else {
+                $grand_total = 0;
+                $carts = 0;
+            }
+        }
+
         $banner = Banner::first();
         $popup = PopUp::first();
         $products = Product::get();
@@ -166,7 +180,9 @@ class IndexController extends Controller
             'nuts' => $nuts,
             'fruits' => $fruits,
             'bakery' => $bakery,
-            'chips' => $chips
+            'chips' => $chips,
+            'grand_total' => $grand_total,
+            'carts' => $carts
         ]);
     }
     public function aboutMart() {

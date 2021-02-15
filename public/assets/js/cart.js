@@ -35,7 +35,7 @@ getcartList();
 
 function addToCart(product, csrf) {
     $.ajaxSetup({
-        headers: { 
+        headers: {
             'X-CSRF-TOKEN': csrf
         }
     });
@@ -51,7 +51,7 @@ function addToCart(product, csrf) {
             $('#cart-dropdown').html(data.view);
             $('#card-message').html("Added to Cart");
             $('#cart-message').slideToggle(200);
-            $("#cart-message").delay(2000).fadeOut(200); 
+            $("#cart-message").delay(2000).fadeOut(200);
         },
         error: function (data) {
             if (data.status == 401) {
