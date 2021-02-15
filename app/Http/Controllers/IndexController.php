@@ -161,8 +161,28 @@ class IndexController extends Controller
                 $grand_total = 0;
                 $carts = 0;
             }
-        }
+            $banner = Banner::first();
+            $popup = PopUp::first();
+            $products = Product::get();
 
+            return view('eazymart.index',[
+                'featured' => $featured_products,
+                'new_arrival' => $new_arrival,
+                'top_sales' => $top_sales,
+                'frontEnd' => $frontEnd,
+                'banner' => $banner,
+                'products' => $products,
+                'popup' => $popup,
+                'dairy' => $dairy,
+                'oil' => $oil,
+                'nuts' => $nuts,
+                'fruits' => $fruits,
+                'bakery' => $bakery,
+                'chips' => $chips,
+                'grand_total' => $grand_total,
+                'carts' => $carts
+            ]);
+        }
         $banner = Banner::first();
         $popup = PopUp::first();
         $products = Product::get();
@@ -181,9 +201,10 @@ class IndexController extends Controller
             'fruits' => $fruits,
             'bakery' => $bakery,
             'chips' => $chips,
-            'grand_total' => $grand_total,
-            'carts' => $carts
+            'auth'=> 0
         ]);
+
+
     }
     public function aboutMart() {
         $about = AboutUs::first();
